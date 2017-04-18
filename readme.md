@@ -12,6 +12,8 @@ The package is designed to work with raster layers of temperature from the R pac
 
 Don't take it for granted that these functions will perform correctly! This is a beta release. We have attempted to optimise code from the originals used in our publication, and we are currently performing testing to ensure numerical accuracy before we release this to CRAN later in 2017.
 
+As of 18 April 2017 there were some discrepencies between results from this code and the code from our paper. 
+
 Please contact [Chris Brown](christo.j.brown@gmail.com) if you want to use this code, or to provide feed-back.
 
 ## Installation
