@@ -32,3 +32,7 @@ You migth like to start with:
     vignette("vocc")
 
 And it should load. Let me know if you have troubles
+
+## Testing
+See `data-raw/compare_new_old_functions.R` for test against our old VoCC functions. 
+There are currently some discrepencies.
