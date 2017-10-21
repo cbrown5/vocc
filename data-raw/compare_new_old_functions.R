@@ -103,3 +103,6 @@ calcslope2 <- function(mnthmean, times = NULL){
 
 system.time(slopedat <- calcslope(sst))
 system.time(slopedat2 <- calcslope2(sst))
+
+
+slopedat

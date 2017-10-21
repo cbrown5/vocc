@@ -14,21 +14,19 @@ source('~/Code/geoengineering/vocc/data-raw/Velocity_functions.R')
 # Create raster brick
 # ---------------
 set.seed(42)
-nr <- 5
+nr <- 2
 ncell <- nr ^ 2
 
 nyrs <- 20
 rx <- NULL
 for (i in 1:nyrs){
-	x <- raster(matrix(rep(20+(1:nr), each = nr), nrow = nr) + rnorm(ncell, sd = 0.2))
-	x[7:9] <- NA
-	x[17:19] <- NA
-	rx <- c(rx, list(x+i))
+	x <- raster(matrix(rep(20+(1:nr), each = nr), nrow = nr))+i
+	rx <- c(rx, list(x))
 }
 
 sst <- stack(rx)
 
-plot(sst, 1)
+plot(sst)
 
 # ---------------
 # Run scripts
@@ -37,7 +35,7 @@ allyears <- rep(1, nlayers(sst))
 mnsst <- stackApply(sst, indices = allyears, fun = mean) # Calculate mean SST over all years
 
 slopedat <- calcslope(sst)
-spatx <- spatialgrad(mnsst)
+spatx <- spatialgrad(mnsst, y_dist = c(1,1))
 velodf <- calcvelocity(spatx, slopedat)
 
 slopedat2 <- calcslope2(sst)

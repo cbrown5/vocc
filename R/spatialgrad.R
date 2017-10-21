@@ -14,7 +14,9 @@
 #'
 #' @details Assumes unprojected coordinates (ie lon-lat).
 #' If you are using projected coordinates, with distance in metres,
-#' you should give \code{y_dist = c(1000,1000)} and \code{y_diff = res(rx)[1]}.
+#' you should give \code{y_dist = res(rx)} and \code{y_diff = NA}.
+#' If \code{y_diff = NA}, no correction will be made for changing
+#' size of 1 degree latitude with latitude.
 #'
 #' @author Christopher J. Brown
 #' @examples
@@ -52,13 +54,27 @@ spatialgrad <- function(rx, y_dist = c(111.325, 111.325), y_diff = 1){
     y3b <- y %>% dplyr::select(from, code1, sst) %>% tidyr::spread(code1, sst)
     y3b$sstFocal <- getValues(rx)[y3b$from]
     y3b$LAT <- yFromCell(rx, y3b$from)
+
+    if(!is.na(y_diff)){
+        y3b <- dplyr::mutate(y3b,
+            latpos = cos(CircStats::rad(LAT + y_diff)),
+            latneg = cos(CircStats::rad(LAT - y_diff)),
+            latfocal = cos(CircStats::rad(LAT)))
+        } else {
+            y3b <- dplyr::mutate(y3b,
+                latpos = 1,
+                latneg = 1,
+                latfocal = 1)
+        }
+
     y3c <- dplyr::mutate(y3b,
-        gradWE1 = (sstN-sstNW)/(cos(CircStats::rad(LAT + y_diff)) * y_dist[1]),
-        gradWE2 = (sstFocal - sstW)/(cos(CircStats::rad(LAT)) * y_dist[1]),
-        gradWE3 = (sstS-sstSW)/(cos(CircStats::rad(LAT - y_diff)) * y_dist[1]),
-        gradWE4 = (sstNE-sstN)/(cos(CircStats::rad(LAT + y_diff)) * y_dist[1]),
-        gradWE5 = (sstE-sstFocal)/(cos(CircStats::rad(LAT)) * y_dist[1]),
-        gradWE6 = (sstSE-sstS)/(cos(CircStats::rad(LAT - y_diff))*y_dist[1]),
+        gradWE1 = (sstN-sstNW)/
+            (latpos *  y_dist[1]),
+        gradWE2 = (sstFocal - sstW)/(latfocal * y_dist[1]),
+        gradWE3 = (sstS-sstSW)/(latneg * y_dist[1]),
+        gradWE4 = (sstNE-sstN)/(latpos * y_dist[1]),
+        gradWE5 = (sstE-sstFocal)/(latfocal * y_dist[1]),
+        gradWE6 = (sstSE-sstS)/(latneg*y_dist[1]),
         gradNS1 = (sstNW-sstW)/y_dist[2],
         gradNS2 = (sstN-sstFocal)/y_dist[2],
         gradNS3 = (sstNE-sstE)/y_dist[2],
