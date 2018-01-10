@@ -13,6 +13,6 @@
 library(raster)
 devtools::load_all("~/Code/geoengineering/vocc")
 
-sst <- brick("~/Code/geoengineering/vocc/data-raw/hadley/Hadley_rcp45.grd")
+sst <- stack("~/Code/geoengineering/vocc/data-raw/hadley/Hadley_rcp45.grd")
 
 devtools::use_data(sst, pkg = "~/Code/geoengineering/vocc")

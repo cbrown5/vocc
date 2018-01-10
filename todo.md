@@ -11,4 +11,7 @@ Fix zero gradient problem. Some areas, e.g. Strait of Gibraltar have zero spatia
 
 There are some differences between new and old code in cul-de-sacs, due to gradients being slightly different. My new code tends to calculate much greater values of vocc in these places.
 Overall this won't affect maps much, but would be good to know why difference occurs.
-See "data-raw/compare_new_old_functions.R" for a comparison.  
+See "data-raw/compare_new_old_functions.R" for a comparison.
+
+## 3
+Add function for velocity algorithm in Hamann et al. 2015 GCB.  
