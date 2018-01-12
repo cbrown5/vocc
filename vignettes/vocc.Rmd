@@ -18,9 +18,10 @@ Functions based on [Burrows MT, Schoeman DS, Buckley LB, Moore P, Poloczanska ES
 
 First load the test version of the package and a raster-brick of sea surface temperature data derived from the [HadISST](https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html) database:
 
-```{r fig.width = 10, fig.height = 7}
+```{r fig.width = 10, fig.height = 7, warning=FALSE, message = FALSE}
 library(vocc)
 data(sst)
+plot(sst, 1:4)
 ```
 
 Then calculate the trend per pixel:

@@ -14,5 +14,6 @@ library(raster)
 devtools::load_all("~/Code/geoengineering/vocc")
 
 sst <- stack("~/Code/geoengineering/vocc/data-raw/hadley/Hadley_rcp45.gri")
+sst <- crop(sst, extent(120, 180, -50, -8))
 
 devtools::use_data(sst, pkg = "~/Code/geoengineering/vocc", overwrite = TRUE)

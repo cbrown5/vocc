@@ -28,6 +28,8 @@ source('~/Code/geoengineering/vocc/data-raw/Velocity_functions.R')
 # ---------------
 # Functions appended '2' are the old ones  we are checking against
 data(sst)
+sst <- crop(sst, extent(-123, -98, 17, 38))
+
 
 system.time(slopedat <- calcslope(sst))
 
@@ -40,6 +42,9 @@ system.time(spatx2 <- spatialgrad2(mnsst))
 system.time(velodf <- calcvelocity(spatx, slopedat))
 system.time(velodf2 <- calcvelocity2(spatx2, slopedat))
 
+plot(spatx$WE, spatx2$WE)
+plot(spatx$NS, spatx2$NS)
+plot(spatx$angle, spatx2$angle)
 # ---------------
 # Plots to check results
 # ---------------
