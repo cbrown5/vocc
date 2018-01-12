@@ -22,13 +22,15 @@
 #' guiding conservation and management. Global Change Biology 21: 997-1004
 #' The primary difference is that we use spatial data structures from
 #' \code{raster} and \code{sf} in the calculations, we use the \code{cut}
-#' function to identify analogous climate conditions, whereas Hamann et al. used rounding, and we allow flexible specification of the calculation of distances.
+#' function to identify analogous climate conditions, whereas Hamann et al.
+#' used rounding, and we allow flexible specification of the calculation
+#' of distances.
 #' As a consequence you must specify the projection of input raster layers.
 #' \code{pre} and \code{post} must be matching rasters and
 #' must contain CRS details (i.e. \code{!is.na(proj4string(pre))}).
 #'
-#' The default distance is the euclidean distance or, in the case of unprojected
-#' coordinates the great circle distance calculated using the
+#' The default distance is the euclidean distance or, in the case of
+#'  unprojected coordinates the great circle distance calculated using the
 #' \code{st_distance()} function.
 #' User defined distance functions should take \code{sf} points objects for
 #' the historical and future conditions as the first two arguments
@@ -73,4 +75,4 @@ distvocc <- function(pre, post, tdiff, tol, denom = 1, distfun = st_distance, ..
 	spvocc <- as(dvocc, "Spatial")
 	r <- raster::rasterize(spvocc, pre, field = "vocc")
 	return(r)
-}
+	}

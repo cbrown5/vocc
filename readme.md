@@ -1,6 +1,6 @@
 # Functions for Calculating the Velocity of Climate Change
 
-D Schoeman, CJ Brown  2017-10-19
+D Schoeman, CJ Brown  2018-01-12
 
 Functions based on [Burrows MT, Schoeman DS, Buckley LB, Moore P, Poloczanska ES, Brander KM, Brown C, Bruno JF, Duarte CM, Halpern BS, Holding J. The pace of shifting climate in marine and terrestrial ecosystems. Science. 2011 Nov 4;334(6056):652-5.](http://science.sciencemag.org/content/334/6056/652).
 

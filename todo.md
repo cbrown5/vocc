@@ -3,6 +3,8 @@
 
 This list is for developers (Dave Schoeman and Chris Brown currently)
 
+- Figure out why `distvocc` cannot be found when you install the package 
+
 ## 1
 
 Fix zero gradient problem. Some areas, e.g. Strait of Gibraltar have zero spatial gradients resulting in NA velocity values. This is an issue for species trajectory models, because it creates artificial barriers.
