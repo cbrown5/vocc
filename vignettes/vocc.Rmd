@@ -16,12 +16,11 @@ Functions based on [Burrows MT, Schoeman DS, Buckley LB, Moore P, Poloczanska ES
 
 ## Simple guide to calculating the VoCC
 
-First load the test version of the package and a raster-brick of sea surface temperature data:
+First load the test version of the package and a raster-brick of sea surface temperature data derived from the [HadISST](https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html) database:
 
 ```{r fig.width = 10, fig.height = 7}
 library(vocc)
 data(sst)
-plot(sst, 1:4)
 ```
 
 Then calculate the trend per pixel:
@@ -59,3 +58,6 @@ plot(rgrad)
 plot(rvocc)
 
 ```
+
+More information about the HadISST data: 
+Rayner, N. A.; Parker, D. E.; Horton, E. B.; Folland, C. K.; Alexander, L. V.; Rowell, D. P.; Kent, E. C.; Kaplan, A. (2003) Global analyses of sea surface temperature, sea ice, and night marine air temperature since the late nineteenth century J. Geophys. Res.Vol. 108, No. D14, 4407 10.1029/2002JD002670 

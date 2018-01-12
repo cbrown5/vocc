@@ -13,6 +13,6 @@
 library(raster)
 devtools::load_all("~/Code/geoengineering/vocc")
 
-sst <- stack("~/Code/geoengineering/vocc/data-raw/hadley/Hadley_rcp45.grd")
+sst <- stack("~/Code/geoengineering/vocc/data-raw/hadley/Hadley_rcp45.gri")
 
-devtools::use_data(sst, pkg = "~/Code/geoengineering/vocc")
+devtools::use_data(sst, pkg = "~/Code/geoengineering/vocc", overwrite = TRUE)
