@@ -1,0 +1,18 @@
+To cite package vocc in publications use:
+
+Christopher J. Brown, David Schoeman (2018).
+  vocc: A package to calculate the Velocity of Climate Change. R
+  package version 0.1.
+
+Which accompanies the publication:
+
+Climate velocity can inform conservation planning and action in a warming world (Submitted)
+Isaac Brito-Morales, Jorge Garcia Molinos, Dave S. Schoeman, Michael T. Burrows, Elvira S. Poloczanska, Christopher J. Brown, Simon Ferrier, Tom D. Harwood, Carissa J. Klein, Eve McDonald-Madden, Pippa J. Moore, John M Pandolfi, James E. Watson, Amelia S. Wenger and Anthony J. Richardson
+
+The description of the basic velocity method is found in :
+
+Loarie SR, Duffy PB, Hamilton H, Asner GP, Field CB, Ackerly DD. The velocity of climate change. 2009. Nature. 24:1052-5.
+
+And the citation for the nearest distance method is found in:
+
+Hamann A, Roberts DR, Barber QE, Carroll C, Nielsen SE. 2015. Velocity of climate change algorithms for guiding conservation and management. Global Change Biology. 21:997-1004.

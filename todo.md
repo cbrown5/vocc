@@ -1,5 +1,5 @@
 # To do for vocc R package
-19 Apr 2017
+2018-01-12
 
 This list is for developers (Dave Schoeman and Chris Brown currently)
 
@@ -14,4 +14,4 @@ Overall this won't affect maps much, but would be good to know why difference oc
 See "data-raw/compare_new_old_functions.R" for a comparison.
 
 ## 3
-Add function for velocity algorithm in Hamann et al. 2015 GCB.  
+Create multivariate version of the Hamann function

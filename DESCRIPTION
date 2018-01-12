@@ -2,7 +2,7 @@ Package: vocc
 Type: Package
 Title: Functions for Calculating the Velocity of Climate Change
 Version: 0.1
-Date: 2017-04-18
+Date: 2018-01-12
 Authors@R: c(person("Christopher", "Brown",
     email = "christo.j.brown@gmail.com",
     role = c("aut", "cre")),
@@ -19,6 +19,8 @@ Depends:
 Imports:
     CircStats,
     dplyr,
+    purrr,
+    sf,
     tidyr
 Suggests:
     knitr,

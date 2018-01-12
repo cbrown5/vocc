@@ -10,3 +10,17 @@
 	ifelse(dy < 0, 180 + CircStats::deg(atan(dx/dy)),
         ifelse(dx < 0, 360 + CircStats::deg(atan(dx /dy )), CircStats::deg(atan(dx/dy))))
 	}
+
+#' @rdname .getmindist
+.getmindist <- function(inum, dat, distfun = st_distance, ...){
+	dtemppre <- dat %>% dplyr::filter(prefact == inum)
+	dtemppost <- dat %>% dplyr::filter(postfact == inum)
+
+	if (nrow(dtemppost) == 0){
+		dtemppre$dist <- Inf
+	} else {
+		dmat <- distfun(dtemppre, dtemppost, ...)
+		dtemppre$dist <- apply(dmat, 1, min)
+	}
+	dtemppre
+}

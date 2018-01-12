@@ -1,4 +1,5 @@
-## ----fig.width = 10, fig.height = 7--------------------------------------
+## ----fig.width = 10, fig.height = 7, warning=FALSE, message = FALSE------
+library(vocc)
 data(sst)
 plot(sst, 1:4)
 
@@ -24,4 +25,16 @@ plot(rtrend)
 plot(rgrad)
 plot(rvocc)
 
+
+## ----fig.width = 5, fig.height = 5---------------------------------------
+tol <- 0.1
+pre <- raster(sst,1)
+post <- raster(sst, 50)
+tdiff <- 50
+units <- 1000
+rvocc <- distvocc(pre, post, tdiff, tol, denom = units)
+plot(rvocc)
+
+## ------------------------------------------------------------------------
+citation("vocc")
 

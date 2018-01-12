@@ -21,14 +21,13 @@ nyrs <- 20
 rx <- NULL
 for (i in 1:nyrs){
 	x <- raster(matrix(rep(20+(1:nr), each = nr), nrow = nr) + rnorm(ncell, sd = 0.2))
-	x[7:9] <- NA
-	x[17:19] <- NA
+	x[10:12] <- NA
 	rx <- c(rx, list(x+i))
 }
 
 sst <- stack(rx)
 
-plot(sst, 1)
+plot(sst)
 
 # ---------------
 # Run scripts
@@ -54,12 +53,4 @@ rvocc[velodf$icell] <- velodf$velocity
 plot(rvocc, col = rev(brewer.pal(9, 'Reds')))
 
 plot(velodf2$velocity, velodf$velocity)
-abline(0,1)
-
-par(mfrow = c(1,3))
-plot(spatx$NS, spatx2$NS)
-abline(0,1)
-plot(spatx$WE, spatx2$WE)
-abline(0,1)
-plot(spatx$angle, spatx2$angle)
 abline(0,1)
