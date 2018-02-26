@@ -61,23 +61,6 @@ plot(rvocc)
 
 ```
 
-## Nearest distance method
-
-You could also calculate the velocity using the nearest distance method: 
-
-```{r fig.width = 5, fig.height = 5}
-tol <- 0.1
-pre <- raster(sst,1)
-post <- raster(sst, 50)
-tdiff <- 50
-units <- 1000
-rvocc <- distvocc(pre, post, tdiff, tol, denom = units)
-plot(rvocc)
-```
-
-This method calculates the velocity as thedistance to the nearest climate analogue over the time between the `pre` and `post` layers (`tdiff`). 
-`tol` sets the tolerance for what is analogous climate conditions, e.g. `tol=0.1` in this case sets intervals of 0.1 degrees C.  
-
 ## Citing this package and the methods used herein 
 
 Citations for the methods can be found here: 
@@ -95,9 +78,6 @@ The description of the basic velocity method is found in:
 
 Loarie SR, Duffy PB, Hamilton H, Asner GP, Field CB, Ackerly DD. The velocity of climate change. 2009. Nature. 24:1052-5.
 
-And the citation for the nearest distance method is found in:
-
-Hamann A, Roberts DR, Barber QE, Carroll C, Nielsen SE. 2015. Velocity of climate change algorithms for guiding conservation and management. Global Change Biology. 21:997-1004.
 
 More information about the HadISST data: 
 
