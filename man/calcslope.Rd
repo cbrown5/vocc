@@ -4,12 +4,14 @@
 \alias{calcslope}
 \title{Calculate trend in temperature for pixels in a raster brick}
 \usage{
-calcslope(x, divisor = 10)
+calcslope(rx, divisor = 10, na.rm = TRUE)
 }
 \arguments{
 \item{rx}{\code{brick} of rasters giving temperature at years.}
 
 \item{divisor}{\code{numeric} giving divisor for rate.}
+
+\item{na.rm}{\code{logical} should NAs be removed?}
 }
 \value{
 A \code{data.frame} giving the slope at each pixel and number of

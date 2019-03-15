@@ -19,10 +19,8 @@ Functions based on [Burrows MT, Schoeman DS, Buckley LB, Moore P, Poloczanska ES
 First load the test version of the package and a raster-brick of sea surface temperature data derived from the [HadISST](https://www.metoffice.gov.uk/hadobs/hadisst/data/download.html) database:
 
 ```{r fig.width = 10, fig.height = 7, warning=FALSE, message = FALSE}
-
 library(vocc)
-data(sst)
-plot(sst, 1:4)
+raster::plot(sst, 1:4)
 ```
 
 Then calculate the trend per pixel:
@@ -35,8 +33,8 @@ Then get the mean temperature for a time period and calculate the spatial gradie
 
 
 ```{r}
-allyears <- rep(1, nlayers(sst))
-mnsst <- stackApply(sst, indices = allyears, fun = mean)
+allyears <- rep(1, raster::nlayers(sst))
+mnsst <- raster::stackApply(sst, indices = allyears, fun = mean)
 spatx <- spatialgrad(mnsst)
 ```
 
@@ -49,16 +47,15 @@ velodf <- calcvelocity(spatx, slopedat)
 Mapping it again is straightforward:
 
 ```{r fig.width = 10, fig.height = 3}
-rtrend <- rgrad <- rvocc <- raster(sst)
+rtrend <- rgrad <- rvocc <- raster::raster(sst)
 rgrad[spatx$icell] <- spatx$NS
 rtrend[slopedat$icell] <- slopedat$slope
 rvocc[velodf$icell] <- velodf$velocity
 
 par(mfrow = c(1,3))
-plot(rtrend)
-plot(rgrad)
-plot(rvocc)
-
+raster::plot(rtrend)
+raster::plot(rgrad)
+raster::plot(rvocc)
 ```
 
 ## Citing this package and the methods used herein 

@@ -26,12 +26,14 @@ Calculate spatial gradient across a raster layer
 \details{
 Assumes unprojected coordinates (ie lon-lat).
 If you are using projected coordinates, with distance in metres,
-you should give \code{y_dist = c(1000,1000)} and \code{y_diff = res(rx)[1]}.
+you should give \code{y_dist = res(rx)} and \code{y_diff = NA}.
+If \code{y_diff = NA}, no correction will be made for changing
+size of 1 degree latitude with latitude.
 }
 \examples{
 data(sst)
-allyears <- rep(1, nlayers(sst))
-mnsst <- stackApply(sst, indices = allyears, fun = mean)
+allyears <- rep(1, raster::nlayers(sst))
+mnsst <- raster::stackApply(sst, indices = allyears, fun = mean)
 spatx <- spatialgrad(mnsst)
 head(spatx$NS)
 }

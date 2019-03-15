@@ -1,8 +1,7 @@
 Package: vocc
 Type: Package
 Title: Functions for Calculating the Velocity of Climate Change
-Version: 0.1
-Date: 2018-01-12
+Version: 0.1.1
 Authors@R: c(person("Christopher", "Brown",
     email = "christo.j.brown@gmail.com",
     role = c("aut", "cre")),
@@ -10,19 +9,22 @@ Authors@R: c(person("Christopher", "Brown",
         email = "dschoema@usc.edu.au",
         role = c("aut")))
 Description: Functions for calculating the velocity of climate change from
-    grid based temperature data
+    grid based temperature data.
 License: MIT + file LICENSE
-RoxygenNote: 6.0.1
-Depends:
-    magrittr,
-    raster
+RoxygenNote: 6.1.1
+Depends: R (>= 3.2.0)
 Imports:
     CircStats,
     dplyr,
     purrr,
     sf,
-    tidyr
+    tidyr,
+    magrittr,
+    raster,
+    rlang
 Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+Encoding: UTF-8
+LazyData: true
