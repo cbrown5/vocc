@@ -13,7 +13,7 @@
 #' @author Christopher J. Brown
 #' @examples
 #' data(sst)
-#' slopedat <- calcslope(sst))
+#' slopedat <- calcslope(sst)
 #' allyears <- rep(1, nlayers(sst))
 #' mnsst <- stackApply(sst, indices = allyears, fun = mean)
 #' spatx <- spatialgrad(mnsst)
