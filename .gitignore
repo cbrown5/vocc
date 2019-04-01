@@ -1,6 +1,7 @@
-.Rbuildignore
 .Rhistory
 .Rapp.history
 .DS_Store
-vignettes
-/hadley
+.Rproj.user
+inst/doc
+*.html
+vignettes/vocc.R

@@ -10,5 +10,7 @@
 #' \code{\link{calcslope}} for getting temperature trends.
 #' \code{\link{calcvelocity}} for calculating velocity trends.
 #'
-"_PACKAGE"
-#> [1] "_PACKAGE"
+#' @importFrom rlang .data
+#' @docType package
+#' @name vocc
+NULL

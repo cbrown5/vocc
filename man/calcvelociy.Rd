@@ -4,14 +4,14 @@
 \alias{calcvelocity}
 \title{Calculate velocity from the spatial gradient and temporal trends}
 \usage{
-calcvelociy(grad, slope, y_dist = 111.325)
+calcvelocity(grad, slope, y_dist = 111.325)
 }
 \arguments{
 \item{grad}{\code{data.frame} returned from \code{spatialgrad}}
 
 \item{slope}{\code{data.frame} returned from \code{calcslope}}
 
-\item{y_diff}{\code{numeric} giving units (degrees latitude) for the coordinate}
+\item{y_dist}{\code{numeric} giving units (degrees latitude) for the coordinate}
 }
 \value{
 \code{data.frame} giving velocity.
@@ -19,19 +19,16 @@ calcvelociy(grad, slope, y_dist = 111.325)
 \description{
 Calculate velocity from the spatial gradient and temporal trends
 }
-\details{
-
-}
 \examples{
 data(sst)
-slopedat <- calcslope(sst))
-allyears <- rep(1, nlayers(sst))
-mnsst <- stackApply(sst, indices = allyears, fun = mean)
+slopedat <- calcslope(sst)
+allyears <- rep(1, raster::nlayers(sst))
+mnsst <- raster::stackApply(sst, indices = allyears, fun = mean)
 spatx <- spatialgrad(mnsst)
 velodf <- calcvelocity(spatx, slopedat)
-r <- raster(sst)
+r <- raster::raster(sst)
 r[velodf$icell] <- velodf$velocity
-plot(r)
+raster::plot(r)
 }
 \author{
 Christopher J. Brown

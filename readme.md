@@ -23,4 +23,4 @@ You might like to start with:
     library(vocc)
     vignette("vocc")
 
-And it should load. Let me know if you have troubles
+And it should load. Let me know if you have troubles.
